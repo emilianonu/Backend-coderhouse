@@ -1,3 +1,6 @@
+//-------Emiliano nuñez---------//
+//--------27/07/2022-------------//
+
 const fs = require('fs');
 
 class Contenedor {
@@ -37,7 +40,7 @@ class Contenedor {
             console.log(err);
         }
     }
-    //Devuelve el objeto con el ID buscado
+    //--------------Devuelvo el objeto con el id buscado-------------
     async getById(id) {
         try {
             this.objects = await this.getAll();
@@ -47,7 +50,7 @@ class Contenedor {
             console.log(err);
         }
     }
-    //Devuelve un array con los objetos presentes en el archivo
+    //---------Devuelvo un array con los objetos del archivo------------
     async getAll() {
         try {
             const data = await this.readData(this.fileName);
@@ -56,7 +59,7 @@ class Contenedor {
             console.log(err);
         }
     }
-    //Elimina del archivo el objeto con el ID buscado
+    //---------------Elimino del archivo el objeto con el id buscado
     async deleteById(id) {
         try {
             this.objects = await this.getAll();
@@ -66,7 +69,7 @@ class Contenedor {
             console.log(err);
         }
     }
-    //Elimina todos los objetos guardados en el archivo
+    //-----------Elimino todos los objetos guardados en el archivo-------------
     async deleteAll() {
         try {
             this.objects = await this.getAll();
