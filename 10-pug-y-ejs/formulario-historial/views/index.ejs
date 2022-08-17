@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="p-4">
+    <div class="container bg-light p-4">
+        <section>
+            <h2 class="text-primary">Ingrese datos</h2>
+            <form action="/personas" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="nombre">Nombre</label>
+                    <input class="form-control" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="apellido">Apellido</label>
+                    <input class="form-control" name="apellido">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="edad">Edad</label>
+                    <input class="form-control" type="number" name="edad">
+                </div>
+                <div class="col-12">
+                    <input class="btn btn-success" type="submit" value="Enviar">
+                </div>
+            </form>
+        </section>
+
+        <section class="mt-5">
+            <h2 class="text-danger">Historial</h2>
+            <% if(personas.length===0) { %>
+                <h4 class="text-bg-danger p-3">no se encontraron datos</h4>
+                <% } else { %>
+                    <table class="table table-dark">
+                        <thead>
+                            <tr class="text-warning">
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Edad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% personas.forEach(persona=> { %>
+                                <tr>
+                                    <!-- No se encontraron datos -->
+                                    <td>
+                                        <%=persona.nombre%>
+                                    </td>
+                                    <td>
+                                        <%=persona.apellido%>
+                                    </td>
+                                    <td>
+                                        <%=persona.edad%>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                    <% } %>
+        </section>
+    </div>
+</body>
+
+</html>
